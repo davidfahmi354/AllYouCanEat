@@ -10,7 +10,7 @@ public class FoodObject : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        typeFood = Random.Range(0, 4);
+        typeFood = Random.Range(0, spritePool.Length);
     }
     void Start()
     {

@@ -1,25 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject Player;
+    public GameObject pl;
+    public Animator anim;
     public List<int> inputPool = new List<int>();
     public List<GameObject> foodPool = new List<GameObject>();
     public int foodsCount;
     public int maxFood;
     public int inputCounter;
+    public int wrongCounter;
+    public int score;
+    public Text scoreText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = pl.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        scoreText.text = "Score\n" + score.ToString();
     }
 
     public void InputCheck()
@@ -36,9 +41,9 @@ public class GameManager : MonoBehaviour
             }
         }
         if (same)
-            print("right");
+            StartCoroutine(AcceptAnimation());
         else
-            print("wrong");
+            StartCoroutine(RejectAnimation());
         RefreshFood();
     }
 
@@ -46,7 +51,29 @@ public class GameManager : MonoBehaviour
     {
         foreach(GameObject foods in foodPool)
         {
-            foods.GetComponent<FoodObject>().typeFood = Random.Range(0, 4);
+            foods.GetComponent<FoodObject>().typeFood = Random.Range(0, foodsCount);
         }
     }
+
+    IEnumerator AcceptAnimation()
+    {
+        score++;
+        anim.SetTrigger("yes");
+        yield return new WaitForSeconds(1);
+        anim.SetTrigger("idle");
+    }
+    IEnumerator RejectAnimation()
+    {
+        wrongCounter++;
+        anim.SetTrigger("no");
+        yield return new WaitForSeconds(1);
+        anim.SetTrigger("idle");
+    }
+
+    void GameOver()
+    {
+
+    }
+
+
 }

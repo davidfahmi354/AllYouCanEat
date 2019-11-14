@@ -89,7 +89,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeFood: 0
   spritePool:
-  - {fileID: 21300008, guid: 9b56d6a3c57663040823e0541e00283e, type: 3}
-  - {fileID: 21300010, guid: 9b56d6a3c57663040823e0541e00283e, type: 3}
-  - {fileID: 21300012, guid: 9b56d6a3c57663040823e0541e00283e, type: 3}
-  - {fileID: 21300014, guid: 9b56d6a3c57663040823e0541e00283e, type: 3}
+  - {fileID: 21300000, guid: 2a1ac59ee47f30348abd3e1629dd8a42, type: 3}
+  - {fileID: 21300000, guid: 479777923be9f7943b8a7127f4e0c66a, type: 3}
+  - {fileID: 21300000, guid: 570fd5259eb2c4149927269b1492e124, type: 3}
